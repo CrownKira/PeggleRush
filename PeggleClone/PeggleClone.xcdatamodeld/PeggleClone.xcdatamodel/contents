@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Block" representedClassName="Block" syncable="YES" codeGenerationType="class">
+        <attribute name="forceConstant" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="board" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Board" inverseName="blocks" inverseEntity="Board"/>
+        <relationship name="corners" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CornerPoint" inverseName="block" inverseEntity="CornerPoint"/>
+    </entity>
+    <entity name="BluePeg" representedClassName="BluePeg" parentEntity="Peg" syncable="YES" codeGenerationType="class"/>
+    <entity name="Board" representedClassName="Board" syncable="YES" codeGenerationType="class">
+        <attribute name="contentHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="isPreloaded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastSavedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" minValueString="3" maxValueString="50"/>
+        <attribute name="width" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="blocks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Block" inverseName="board" inverseEntity="Block"/>
+        <relationship name="pegs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Peg" inverseName="board" inverseEntity="Peg"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CornerPoint" representedClassName="CornerPoint" syncable="YES" codeGenerationType="class">
+        <attribute name="x" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="y" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="corners" inverseEntity="Block"/>
+    </entity>
+    <entity name="GreenPeg" representedClassName="GreenPeg" parentEntity="Peg" syncable="YES" codeGenerationType="class"/>
+    <entity name="OrangePeg" representedClassName="OrangePeg" parentEntity="Peg" syncable="YES" codeGenerationType="class"/>
+    <entity name="Peg" representedClassName="Peg" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="radius" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="rotation" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="x" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="y" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="board" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Board" inverseName="pegs" inverseEntity="Board"/>
+    </entity>
+    <entity name="PurplePeg" representedClassName="PurplePeg" parentEntity="Peg" syncable="YES" codeGenerationType="class"/>
+    <elements>
+        <element name="Block" positionX="207" positionY="-27" width="128" height="74"/>
+        <element name="BluePeg" positionX="20.56378173828125" positionY="155.9526672363281" width="128" height="43"/>
+        <element name="Board" positionX="194.7739868164062" positionY="-219.2780151367188" width="128" height="164"/>
+        <element name="CornerPoint" positionX="225" positionY="-9" width="128" height="74"/>
+        <element name="GreenPeg" positionX="189" positionY="-45" width="128" height="29"/>
+        <element name="OrangePeg" positionX="320.8488159179688" positionY="164.6752319335938" width="128" height="29"/>
+        <element name="Peg" positionX="164.6499633789062" positionY="35.78341674804688" width="128" height="104"/>
+        <element name="PurplePeg" positionX="198" positionY="-36" width="128" height="29"/>
+    </elements>
+</model>
