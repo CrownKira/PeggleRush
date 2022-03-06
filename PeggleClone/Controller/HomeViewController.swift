@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction private func selectLevelButtonPressed(_ sender: UIButton) {
-        playClickSound2Effect()
+        playClick2SoundEffect()
     }
 }
 
@@ -46,7 +46,7 @@ extension HomeViewController {
         }
     }
 
-    private func playClickSound2Effect() {
+    private func playClick2SoundEffect() {
         if let player = SoundArtist.artist.click2SoundPlayer {
             player.play()
         }

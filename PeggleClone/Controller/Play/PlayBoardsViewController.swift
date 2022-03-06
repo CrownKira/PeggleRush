@@ -183,7 +183,7 @@ extension PlayBoardsViewController: UICollectionViewDelegateFlowLayout {
 
 extension PlayBoardsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        playClickSound2Effect()
+        playClick2SoundEffect()
         viewModel.getSelectedBoardViewModel(for: indexPath)
     }
 }
@@ -210,7 +210,7 @@ extension PlayBoardsViewController {
         }
     }
 
-    private func playClickSound2Effect() {
+    private func playClick2SoundEffect() {
         if let player = SoundArtist.artist.click2SoundPlayer {
             player.play()
         }
